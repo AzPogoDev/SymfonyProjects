@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin edit !{% endblock %}
+
+{% block body %}
+
+    <div class="admin-edit">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Editer mon projet</h1>
+            </div>
+        </div>
+        <div class="container">
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-primary">Enregistrer</button>
+            {{ form_end(form) }}
+        </div>
+
+
+    </div>
+{% endblock %}

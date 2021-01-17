@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home Page - Bitch!{% endblock %}
+
+{% block body %}
+
+    <div class="index">
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Index</h1>
+                <h2 class="h2">Bienvenue sur l'index</h2>
+            </div>
+        </div>
+        <div class="index__section">
+            <div class="container">
+                <h2>Projets récents</h2>
+                {% for project in projects %}
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <a href="{{ path('project.show', { id:project.id, slug:project.titre}) }}">{{ project.titre }}</a>
+                                    </h5>
+                                    <p class="card-text">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">{{ project.description }}</li>
+                                        <li class="list-group-item">Lieux : {{ project.lieux }}</li>
+                                        <li class="list-group-item">Date : {{ project.date }}</li>
+                                    </ul>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

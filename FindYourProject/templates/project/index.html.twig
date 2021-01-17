@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello !{% endblock %}
+
+{% block body %}
+
+    <div class="index">
+        <div class="container">
+            <h1>{{ project.titre }}</h1>
+        </div>
+        <div class="show__section">
+            <div class="container">
+                <table class="table table-striped">
+                    <tr>
+                        <td>Descirption</td>
+                        <td>{{ project.description }}</td>
+                    </tr>
+                    <tr>
+                        <td>Lieux</td>
+                        <td>{{ project.lieux }}</td>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>{{ project.date }}</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
