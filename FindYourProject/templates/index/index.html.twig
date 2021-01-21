@@ -14,8 +14,9 @@
         <div class="index__section">
             <div class="container">
                 <h2>Projets récents</h2>
-                {% for project in projects %}
-                    <div class="row mt-3">
+                <div class="row mt-3">
+                    {% for project in projects %}
+
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body">
@@ -32,8 +33,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
+
             </div>
         </div>
     </div>

@@ -7,7 +7,6 @@ use App\Form\ProjectType;
 use App\Repository\ProjectsEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
-use phpDocumentor\Reflection\Project;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,7 +43,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
-     * @Route("/admin/project/{id}", name="admin.project.edit")
+     * @Route("/admin/project/{id}", name="admin.project.edit", methods="GET|POST")
      * @param ProjectsEntity $project
      * @param Request $request
      * @return Response
@@ -66,7 +65,7 @@ class AdminProjectController extends AbstractController
     }
 
     /**
-     * @Route("/admin/project/create", name="admin.project.create")
+     * @Route("/admin/create", name="admin.project.create")
      * @param Request $request
      * @return Response
      */
@@ -86,6 +85,19 @@ class AdminProjectController extends AbstractController
             'project' => $project,
             'form' => $form->createView()
         ]);
+    }
+
+
+    /**
+     * @Route("/admin/project/{id}", name="admin.project.delete", methods="DELETE")
+     * @param ProjectsEntity $project
+     * @return RedirectResponse
+     */
+    public function delete(ProjectsEntity $project): RedirectResponse
+    {
+      $this->em->remove($project);
+      $this->em->flush();
+      return $this->redirectToRoute('admin.project.index');
     }
 
 
